@@ -2,18 +2,22 @@
 
 #file backup script
 
+#This script will require you to enter your directory path in the BACKUP_DIR variable
+
 #check if file name is provided
 
 if [ -z "$1" ]; then
-    echo "usage: provide file name/path"
+    echo "usage: provide file name/path: ScriptName fileName"
+    exit 1
 fi
 
 #backup file
 
 FILE=$1
-BACKUP_DIR="enter backup directory path"
+#here you can enter your backup directory
+BACKUP_DIR="enter backup directory path here"
 
-#backup
+#command to backup file
 
 cp "$FILE" "$BACKUP_DIR/$(basename "$FILE")-$(date +%Y%m%d%H%M%S)"
 
